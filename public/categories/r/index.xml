@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R on A Hugo website</title>
+    <link>/categories/r/</link>
+    <description>Recent content in R on A Hugo website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 25 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>cesR Data Analysis on gender and durarion</title>
+      <link>/2020/09/25/cesr-data-analysis-on-gender-and-durarion/</link>
+      <pubDate>Fri, 25 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/09/25/cesr-data-analysis-on-gender-and-durarion/</guid>
+      <description>Introduction The data is about Canadian Election Study and I choose the Web survey in this study to explore some interesting findings.
+ Data Data description There are 620 variables and 37822 observations in this data set and there are some interesting variable that caught my eyes.
+ Some initial explorations The variables we focus on are:
+ the gender of participants in the Web survey
+ the citizenship of participants in the Web survey</description>
+    </item>
+    
+  </channel>
+</rss>

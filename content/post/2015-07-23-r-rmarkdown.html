@@ -1,0 +1,63 @@
+---
+title: "cesR Data Analysis on gender and durarion"
+author: "Chenxuan Ding"
+date: 2020-09-25
+categories: ["R"]
+tags: ["R Markdown", "plot", "regression"]
+---
+
+
+
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>The data is about Canadian Election Study and I choose the Web survey in this study to explore some interesting findings.</p>
+</div>
+<div id="data" class="section level1">
+<h1>Data</h1>
+<div id="data-description" class="section level3">
+<h3>Data description</h3>
+<p>There are 620 variables and 37822 observations in this data set and there are some interesting variable that caught my eyes.</p>
+</div>
+<div id="some-initial-explorations" class="section level3">
+<h3>Some initial explorations</h3>
+<p>The variables we focus on are:</p>
+<ul>
+<li><p>the gender of participants in the Web survey</p></li>
+<li><p>the citizenship of participants in the Web survey</p></li>
+<li><p>the time taken by participants in the Web survey</p></li>
+</ul>
+</div>
+<div id="summary-statistics-for-the-two-interested-numerical-variables-age-and-duration" class="section level3">
+<h3>Summary statistics for the two interested numerical variables age and duration:</h3>
+<ul>
+<li>Summary statistics for time taken</li>
+</ul>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##     500     913    1189    1436    1604    9988</code></pre>
+<p><img src="/post/2015-07-23-r-rmarkdown_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="/post/2015-07-23-r-rmarkdown_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+In this graph, we see that there is no difference between duration for different gender.</p>
+<p><img src="/post/2015-07-23-r-rmarkdown_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<ul>
+<li>We found that there is a quite difference between male and female that participated in the online survey. The difference is about 7000 people that is quite large considering the small sample size.</li>
+</ul>
+</div>
+</div>
+<div id="discussion" class="section level1">
+<h1>Discussion</h1>
+<p>The analysis mainly focused on the gender difference in the survey and we observed that there is a difference in gender but no difference for gender to affecting the duration.</p>
+<div id="weaknesses-and-next-steps" class="section level3">
+<h3>Weaknesses and next steps</h3>
+<p>Next step could be fitting linear regression model to the data and since there are so many variables, the weekness could be lacking of consideration of lurking variables and confounding variables.</p>
+</div>
+</div>
+<div id="references" class="section level1">
+<h1>References</h1>
+<ul>
+<li>Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, ‘2019 Canadian Election Study - Online Survey’, <a href="https://doi.org/10.7910/DVN/DUS88V" class="uri">https://doi.org/10.7910/DVN/DUS88V</a>, Harvard Dataverse, V1</li>
+<li>Paul A. Hodgetts and Rohan Alexander (2020). cesR: Access the CES Datasets a Little Easier.. R package version 0.1.0.</li>
+<li>Hadley Wickham, Jim Hester and Winston Chang (2020). devtools: Tools to Make Developing R Packages Easier. <a href="https://devtools.r-lib.org/,https://github.com/r-lib/devtools" class="uri">https://devtools.r-lib.org/,https://github.com/r-lib/devtools</a>.</li>
+<li>R Core Team (2020). R: A language and environment for statistical computing. R, Foundation for Statistical Computing, Vienna, Austria. URL, <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</li>
+<li>JJ Allaire and Yihui Xie and Jonathan McPherson and Javier Luraschi and Kevin Ushey and Aron Atkins and Hadley Wickham and Joe Cheng and Winston Chang and Richard Iannone (2020). rmarkdown: Dynamic Documents for R. R package version 2.3. URL <a href="https://rmarkdown.rstudio.com" class="uri">https://rmarkdown.rstudio.com</a>.</li>
+</ul>
+</div>

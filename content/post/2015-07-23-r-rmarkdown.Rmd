@@ -1,0 +1,115 @@
+---
+title: "cesR Data Analysis on gender and durarion"
+author: "Chenxuan Ding"
+date: 2020-09-25
+categories: ["R"]
+tags: ["R Markdown", "plot", "regression"]
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+# Introduction
+
+The data is about Canadian Election Study and I choose the Web survey in this study to explore some interesting findings.
+
+
+```{r download, warning=FALSE, message=FALSE, echo = FALSE, results='hide'}
+install.packages("devtools")
+devtools::install_github("hodgettsp/cesR")
+cesR::get_ces("ces2019_web")
+```
+
+# Data
+
+### Data description
+
+There are 620 variables and 37822 observations in this data set and there are some interesting variable that caught my eyes.
+
+```{r, eval = FALSE, echo = FALSE}
+head(ces2019_web)
+```
+### Some initial explorations
+
+```{r, echo = FALSE,warning=FALSE, message=FALSE, echo = FALSE}
+library(dplyr)
+ces2019_web_subset <- ces2019_web %>% 
+  select(cps19_gender, cps19_citizenship, cps19_Q_TotalDuration) %>%
+  filter(cps19_Q_TotalDuration < 10000)
+
+```
+
+
+The variables we focus on are:
+
+- the gender of participants in the Web survey
+
+- the citizenship of participants in the Web survey
+
+- the time taken by participants in the Web survey
+
+### Summary statistics for the two interested numerical variables age and duration:
+
+- Summary statistics for time taken
+
+```{r, echo=FALSE}
+# Summary statistics for age
+summary(ces2019_web_subset$cps19_Q_TotalDuration)
+```
+
+
+```{r, echo = FALSE,warning=FALSE,message=FALSE}
+library(ggplot2)
+ggplot(ces2019_web_subset, aes(y=cps19_citizenship)) +
+  geom_bar(size = 0.5) 
+
+```
+
+```{r, echo = FALSE,warning=FALSE,message=FALSE}
+library(ggplot2)
+ggplot(ces2019_web_subset, aes(x=cps19_Q_TotalDuration,y=cps19_gender)) +
+  geom_point(size = 0.5) 
+
+```
+In this graph, we see that there is no difference between duration for different gender.
+
+```{r, echo = FALSE,warning=FALSE,message=FALSE}
+ces2019_web_subset %>% 
+  ggplot(aes(x = cps19_gender)) +
+  geom_histogram(binwidth = 1) +
+  labs(x = "Gender",
+       y = "Number",
+       title = "Distribution of Age in 2019 Online Web CES",
+       caption = "Source: Stephenson, Harell, Rubenson, Loewen, 2020.") +
+  theme_bw()
+```
+
+- We found that there is a quite difference between male and female that participated in the online survey. The difference is about 7000 people that is quite large considering the small sample size.
+
+
+
+
+# Discussion
+
+
+
+
+The analysis mainly focused on the gender difference in the survey and we observed that there is a difference in gender but no difference for gender to affecting the duration.
+
+
+
+
+### Weaknesses and next steps
+
+
+Next step could be fitting linear regression model to the data and since there are so many variables, the weekness could be lacking of consideration of lurking variables and confounding variables.
+
+
+# References
+
+- Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, '2019 Canadian Election Study - Online Survey', https://doi.org/10.7910/DVN/DUS88V, Harvard Dataverse, V1
+- Paul A. Hodgetts and Rohan Alexander (2020). cesR: Access the CES Datasets a Little Easier.. R package version 0.1.0.
+-  Hadley Wickham, Jim Hester and Winston Chang (2020). devtools: Tools to Make Developing R Packages Easier. https://devtools.r-lib.org/,https://github.com/r-lib/devtools.
+- R Core Team (2020). R: A language and environment for statistical computing. R, Foundation for Statistical Computing, Vienna, Austria. URL, https://www.R-project.org/.
+- JJ Allaire and Yihui Xie and Jonathan McPherson and Javier Luraschi and Kevin Ushey and Aron Atkins and Hadley Wickham and Joe Cheng and Winston Chang and Richard Iannone (2020). rmarkdown: Dynamic Documents for R. R package version 2.3. URL https://rmarkdown.rstudio.com.
