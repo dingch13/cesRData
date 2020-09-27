@@ -105,6 +105,9 @@ The analysis mainly focused on the gender difference in the survey and we observ
 
 Next step could be fitting linear regression model to the data and since there are so many variables, the weekness could be lacking of consideration of lurking variables and confounding variables.
 
+# Blog website
+
+https://github.com/dingch13/cesRData
 
 # References
 
